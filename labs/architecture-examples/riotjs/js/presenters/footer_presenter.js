@@ -1,7 +1,6 @@
 'use strict';
 
-function footerPresenter(element, options) {
-    element = $(element);
+function footerPresenter($element, options) {
     var todo = options.model, template = {
         count: '<strong>{active}</strong> {items} left',
         completed: 'Clear completed ({done})'
@@ -18,9 +17,9 @@ function footerPresenter(element, options) {
             showFooter = (done + active > 0),
             data = {active: active, done: done, items: items};
 
-        element.toggle(showFooter);
-        $('#todo-count', element).html(render('count', data))
-        $('#clear-completed', element)
+        $element.toggle(showFooter);
+        $('#todo-count', $element).html(render('count', data))
+        $('#clear-completed', $element)
             .toggle(showClear)
             .html(render('completed', data))
     }
@@ -29,5 +28,5 @@ function footerPresenter(element, options) {
         return $.render(template[name], data);
     }
 
-    return element;
+    return $element;
 }

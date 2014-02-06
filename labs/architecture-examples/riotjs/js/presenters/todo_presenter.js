@@ -1,14 +1,13 @@
 'use strict';
 
-function todoPresenter(element, options) {
-    element = $(element);
+function todoPresenter($element, options) {
     var template = options.template,
         todo = options.model,
-        $list = element.find('#todo-list');
+        $list = $element.find('#todo-list');
 
     /* Listen to user events */
 
-    element.on('keyup', '#new-todo', function(e) {
+    $element.on('keyup', '#new-todo', function(e) {
         var val = $.trim(this.value);
         if (val && e.which === 13) {
             todo.add(val);
@@ -64,9 +63,9 @@ function todoPresenter(element, options) {
 
     /* Private functions */
 
-    function toggle(element, flag) {
-        element.toggleClass('completed', flag);
-        element.find(':checkbox').prop('checked', flag);
+    function toggle($element, flag) {
+        $element.toggleClass('completed', flag);
+        $element.find(':checkbox').prop('checked', flag);
     }
 
     function edit(item) {
@@ -76,18 +75,18 @@ function todoPresenter(element, options) {
     }
 
     function add(item) {
-        var element = $($.render(template, item));
-        $list.append(element);
-        toggle(element, !!item.done);
+        var $element = $($.render(template, item));
+        $list.append($element);
+        toggle($element, !!item.done);
     }
 
-    function getTaskElement(element) {
-        return $(element).closest('[data-task]');
+    function getTaskElement($element) {
+        return $($element).closest('[data-task]');
     }
 
-    function getTaskId(element) {
-        return getTaskElement(element).data('task');
+    function getTaskId($element) {
+        return getTaskElement($element).data('task');
     }
 
-    return element;
+    return $element;
 }
