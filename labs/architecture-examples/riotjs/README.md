@@ -26,17 +26,20 @@ Articles and guides from the community:
 
 The TodoMVC application is structured according to the [Riot documentation](https://moot.it/riotjs/docs/) about "Building modular applications with Riot.js".
 
-Riot's applications should be divided in well defined modules. Those modules should loosely coupled modules to make then easy reused and tested.
+Riot applications should be divided in well defined modules. Those modules should be loosely coupled so they can be easily reused and tested.
 
-* **Models**: Haddles the data and events related to the its changes.
+* **Models**: Handles the data and events related to its changes.
 * **Presenters**: Handles the UI and can bind or trigger events to the given **model**.
 * **Routers**: Handle changes on the route and can trigger events on the given **model**.
-* **Tests**: Riot's also include a very simple BDD framework that can be used on node or the browser.
+* **Tests**: Riot also includes a very simple BDD framework that can be used on node or in the browser.
 
 
 ## Running
 
-To run Riot's Todo APP just open `todomvc/labs/architecture-examples/riotjs/index.html` in a browser, you can also run the test suite on `todomvc/labs/architecture-examples/riotjs/test/index.html`.
+To run Riot's Todo App just open `todomvc/labs/architecture-examples/riotjs/index.html` in a browser.
+
+You can also run the test suite on `todomvc/labs/architecture-examples/riotjs/test/index.html`.
+
 
 ## Credit
 
